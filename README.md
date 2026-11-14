@@ -6,16 +6,36 @@ Challenge** (deadline **18 November 2026, 23:59 Santiago**), with **Phaser 3**, 
 `game.js` under 50 KB**, and **no external assets**: every sprite drawn and every sound
 synthesized in code.
 
-## Quick path
+## Quick path: as a submodule of your challenge repo
 
-1. Open Claude Code in this folder (hooks and permissions load only from here).
-2. No idea yet? Run `/brainstorm`. Have one? Run `/arcade <your game in one sentence>`.
-3. `/arcade` copies the starter into `prototypes/<name>/`, builds `game.js`, runs the
-   restriction check, screenshots the title screen as `cover.png`, and reports.
-4. Play it: open `prototypes/<name>/index.html` in a browser (it loads Phaser 3.87.0 from a
-   CDN). Ask `/arcade` for changes until it is fun.
-5. Copy `game.js`, `metadata.json` and `cover.png` into the challenge's own repo, run its
-   checker (`npm install`, `npm run dev`, localhost:3001) and hit **Submit** in its dev UI.
+This repo is a tool; the game lives in your copy of the challenge repo (it has `game.js`,
+`metadata.json` and `AGENTS.md` at its root). In that repo:
+
+```bash
+git submodule add https://github.com/Jrgil20/Claude-Code-Game-Studios tools/studio
+mkdir -p .claude/skills
+ln -s ../../tools/studio/.claude/skills/arcade .claude/skills/arcade
+npm install
+```
+
+1. Start Claude Code at the challenge repo's root.
+2. Run `/arcade <your game in one sentence>`. It edits the root `game.js`,
+   `metadata.json` and `cover.png` only, obeys the repo's `AGENTS.md`, runs
+   `npm run check-restrictions` plus its own check, and screenshots the cover.
+3. Play it with `npm run dev` (localhost:3001), then hit **Submit** in the dev UI.
+
+**Why the symlink:** Claude Code loads skills from `.claude/skills/` where the session starts
+and in parent folders, but a nested one (`tools/studio/.claude/skills/`) only after Claude
+first touches a file there. `/add-dir tools/studio` also works, per session. The studio's
+hooks, agents and `settings.json` do not load from the parent; `/arcade` does not need them.
+
+**Not sourced:** whether the official checker or the Submit step objects to the extra
+`tools/` and `.claude/` folders. The repo's `AGENTS.md` only says which files to edit.
+
+## Standalone
+
+Open Claude Code in this folder and run `/arcade`: with no challenge repo around, it builds in
+`prototypes/<name>/` and you play it by opening that folder's `index.html`.
 
 ## The challenge rules
 
@@ -39,7 +59,7 @@ where it differs.
 |---|---|
 | Skills | `/arcade` (the challenge build), `/brainstorm` (find the idea), `/prototype` (any other browser sketch), `/cut` (decide what to drop and finish), `/project-settings` and `/settings` (config) |
 | Agents | `creative-director`, `game-designer`, `prototyper`, `gameplay-programmer`, `technical-artist`, `art-director`, `sound-designer`, `ui-programmer`, `performance-analyst` |
-| Check script | `bash .claude/scripts/arcade-check.sh prototypes/<name>`: raw and minified size, forbidden-pattern hits, `CABINET_KEYS` intact, `player_mode`, cover size. It reports; `/arcade` decides |
+| Check scripts | `.claude/skills/arcade/scripts/`: `arcade-check.sh <game folder>` (raw and minified size, forbidden-pattern hits, `CABINET_KEYS` intact, `player_mode`, cover size) and `cover-shot.sh <game folder> <out.png>` (the 800x600 cover). They report; `/arcade` decides |
 | Starter | `.claude/skills/arcade/assets/`: `game.js` (cabinet input, storage bridge, procedural textures, synth sound, title → play → game over), local `index.html`, `metadata.json` |
 
 ## Good to know

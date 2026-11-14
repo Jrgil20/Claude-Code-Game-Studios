@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # arcade-check.sh — measure an arcade-challenge game folder against the challenge's
-# restrictions (.claude/skills/arcade/references/rules.md) and report what it sees.
+# restrictions (../references/rules.md) and report what it sees.
 #
 # It reports; whether a row blocks the submission is /arcade's call. A row that could not
 # be measured says NOT ASSESSED and why, never a silent pass.
 #
-# Usage: bash .claude/scripts/arcade-check.sh <folder> [--budget BYTES]
+# Usage: bash <skill>/scripts/arcade-check.sh <folder> [--budget BYTES]
 #   <folder>        the game's folder, holding game.js, metadata.json and cover.png
 #   --budget BYTES  the minified size limit, default 50000 (50 KB read as 1000-byte KB, the
 #                   stricter reading: the sheet does not say which KB it means)
