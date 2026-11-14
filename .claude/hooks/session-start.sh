@@ -158,7 +158,7 @@ if [ -n "$STAGE_YAML" ] && [ -n "$STAGE_TXT" ] && [ "$STAGE_YAML" != "$STAGE_TXT
     echo "      project.yaml  project.stage : $STAGE_YAML   (authoritative)"
     echo "      production/stage.txt        : $STAGE_TXT   (legacy mirror)"
     echo "    Twelve consumers read the mirror, so part of the system is acting on"
-    echo "    each value. Only /gate-check should change a stage (on a PASS, or a"
+    echo "    each value. Change the stage only by hand in project.yaml (on a PASS, or a"
     echo "    CONCERNS whose risks you accepted) — do not hand-edit either file to"
     echo "    silence this."
 fi
@@ -265,13 +265,13 @@ if [ -f project.yaml ] && [ -f CLAUDE.md ]; then
         echo "   project.yaml engine.name : $CFG"
         echo "   CLAUDE.md imports        : docs/engine-reference/$ERI/VERSION.md"
         echo "   Every session is loading the $ERI reference on a $CFG project."
-        echo "   Fix: re-run /setup-engine, or edit the ENGINE-REFERENCE-IMPORT line."
+        echo "   Fix: edit the ENGINE-REFERENCE-IMPORT line."
     elif [ -z "$ERI" ] && [ -n "$CFG" ] && [ -f "docs/engine-reference/$CFG/VERSION.md" ]          && grep -q 'ENGINE-REFERENCE-IMPORT' CLAUDE.md 2>/dev/null; then
         echo ""
         echo "!! NO ENGINE REFERENCE IMPORTED"
         echo "   project.yaml engine.name : $CFG"
         echo "   CLAUDE.md imports no docs/engine-reference/<engine>/VERSION.md."
-        echo "   Fix: re-run /setup-engine, or add @docs/engine-reference/$CFG/VERSION.md"
+        echo "   Fix: add @docs/engine-reference/$CFG/VERSION.md"
         echo "   on the line under the ENGINE-REFERENCE-IMPORT comment."
     fi
 fi

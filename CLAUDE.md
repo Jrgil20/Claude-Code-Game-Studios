@@ -1,18 +1,22 @@
-# Claude Code Game Studios -- Game Studio Agent Architecture
+# Claude Code Game Studios -- trimmed for the Platanus Hack 26 arcade challenge
 
-Indie game development managed through 49 coordinated Claude Code subagents.
-Each agent owns a specific domain, enforcing separation of concerns and quality.
+A cut-down Claude Code Game Studios: the skills and agents needed to build one
+browser arcade game for a cabinet challenge. Each agent owns a specific domain.
 
 ## Technology Stack
 
-- **Engine**: [CHOOSE: Web / Godot 4 / Unity / Unreal Engine 5]
-- **Language**: [CHOOSE: TypeScript / GDScript / C# / C++ / Blueprint]
+- **Engine**: Web, **Phaser 3.87.0** (loaded by the cabinet from a CDN; not Phaser 4)
+- **Language**: vanilla JavaScript, one `game.js`, no `import`/`require`
+- **Budget**: `game.js` at most 50 KB minified; no external assets — everything drawn
+  and synthesized in code
 - **Version Control**: Git with trunk-based development
-- **Build System**: [SPECIFY after choosing engine]
-- **Asset Pipeline**: [SPECIFY after choosing engine]
+- **Controls**: cabinet codes (`P1_U`, `P1_1`, `START1`); never modify `CABINET_KEYS`
+- **Storage**: `window.platanusArcadeStorage` only
+- **Deadline**: 18 November 2026, 23:59 Santiago (UTC−3)
+- **Rules**: `.claude/skills/arcade/references/rules.md` (sourced, with what is not)
 
-> **Note**: Engine-specialist agents exist for Godot, Unity, and Unreal with
-> dedicated sub-specialists. Use the set matching your engine.
+> **Main path**: `/arcade` builds and checks the game; `/brainstorm` finds the idea;
+> `/prototype` for any other browser sketch; `/cut` to finish.
 
 ## Project Structure
 
@@ -21,8 +25,8 @@ Each agent owns a specific domain, enforcing separation of concerns and quality.
 ## Engine Version Reference
 
 <!-- ENGINE-REFERENCE-IMPORT: the line under this comment is engine-specific,
-     and there is none until an engine is set. /setup-engine, the grow's record
-     step and /project-settings (engine.name) write
+     and there is none until an engine is set. The grow's record step and
+     /project-settings (engine.name) write
      @docs/engine-reference/<engine>/VERSION.md here for the chosen engine. Skills
      that need the pinned version read that file on demand either way. -->
 
@@ -34,9 +38,8 @@ naming, platform, performance, modes. Skills resolve it via `resolve_config`
 (see `.claude/docs/config-resolution.md`).
 
 `.claude/docs/technical-preferences.md` is the **legacy fallback**, read on demand
-when a key is absent from `project.yaml`. It is not imported here: before
-`/setup-engine` runs it is almost entirely `[TO BE CONFIGURED]` placeholders, and
-after it runs `project.yaml` holds the real values.
+when a key is absent from `project.yaml`. It is not imported here: it is almost
+entirely `[TO BE CONFIGURED]` placeholders, and `project.yaml` holds the real values.
 
 ## Coordination Rules
 
@@ -60,8 +63,7 @@ Every task follows: **Question -> Options -> Decision -> Draft -> Approval**
 
 See `docs/COLLABORATIVE-DESIGN-PRINCIPLE.md` for full protocol and examples.
 
-> **First session?** Say "make me a game" (`/prototype`), or run `/start` to begin
-> the guided onboarding flow.
+> **First session?** Run `/arcade` with your game idea, or `/brainstorm` to find one.
 
 ## Coding Standards
 

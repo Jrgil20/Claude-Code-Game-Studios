@@ -57,21 +57,21 @@ of starting over; its In your words section is never rewritten, only added to.
    questions, writes the one-page brief from the genre's sheet and builds a playable browser
    game." End with `Verdict: COMPLETE — concept picked; /prototype writes
    the brief.` Go on to step 2 only when they ask to write the brief here first ("write it
-   down", "formalize it", or `/start`'s `Formalize it first`).
+   down", "formalize it", or a request to write it down first).
 2. **Fill the brief** in conversation, several fields per exchange:
    - **In your words:** everything the user writes about the game, word for word: the hint, their
      descriptions, their changes. Never your concept lines; when they only picked one, it holds
      their hint and which concept they picked.
    - **Working title:** the brief's title line. Offer one from the chosen concept and let the user
-     change it; `/create-stories` names the epic folder after it.
+     change it.
    - **Pitch:** the excited one-liner.
    - **Genre**, **Controls** (how you play) and **Look** (how it looks and sounds, in their
      words, under Look and references): one line each.
    - **Question** (what a first playable build must answer) and **Hooks** (what makes it this
      game and not its genre): propose them from the concept; the user changes them.
    - **Core loop:** the 2 to 4 steps the player repeats.
-   - **Goal & fail state**: what the player tries to do, and how they lose. `/create-stories` turns
-     it into acceptance criteria.
+   - **Goal & fail state**: what the player tries to do, and how they lose. These become the
+     game's checks.
    - **Features:** the short list that makes it the game, each `[ ]` (not built yet); each becomes
      a story. **More than 7 items: push back.** Say it is too long for an MVP, propose which items
      to cut (the ones the core loop works without), and keep the brief to 7 or fewer.
@@ -91,18 +91,11 @@ of starting over; its In your words section is never rewritten, only added to.
    revision, change the named field, show it before and after, and ask again. Then write
    `design/game-brief.md`, creating folders as needed. Never write `design/gdd/game-concept.md`
    at this tier.
-4. **Next steps.** Read `engine.name` in `project.yaml`:
-   - **Absent, empty or `web`:** one step, `/prototype`: it builds the brief as a playable
-     browser game, after a card of what it will build. Say "Type `/prototype` to build
-     it." and do not start it yourself: a typed `/brainstorm` runs its turn on this skill's model,
-     and the build must run on the session's.
-   - **An engine set:**
-     1. `/create-stories`: turn the Features list into stories. At `minimal` there is no separate
-        `/create-epics` or `/sprint-plan`; the build order is the plan.
-     2. `/dev-story`: the first line of game code.
-
-     Then one line: "`/prototype --path html` makes a browser sketch first; not recommended, since
-     the game is rebuilt in [engine]."
+4. **Next steps.** One step. For the arcade challenge (Phaser 3, one `game.js`): say "Type
+   `/arcade` to build it." Otherwise: "Type `/prototype` to build it": it builds the brief as a
+   playable browser game, after a card of what it will build. Do not start either yourself: a
+   typed `/brainstorm` runs its turn on this skill's model, and the build must run on the
+   session's.
 
    Then one summary line: the pitch, the number of Features, and `design/game-brief.md`. End with
    the line `Verdict: COMPLETE — game brief written; next stop is code.`

@@ -36,7 +36,7 @@ References: <file> for <what it set>; <sound or link> (note only: not heard | no
 Guessed: <what the build decided that the brief did not say>
 Effort: <the build's effort>
 Built in <minutes> minutes
-Next: play it first; then /setup-engine <engine>, and /prototype --path engine for what only the engine can answer
+Next: play it first; then set engine.name in project.yaml, and /prototype --path engine for what only the engine can answer
 Not yet played by a person.
 ```
 

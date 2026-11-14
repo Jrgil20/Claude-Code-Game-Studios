@@ -13,10 +13,9 @@
 ├── tests/                       # Game test suites (unit, integration, performance, playtest)
 ├── tools/                       # Build and pipeline tools (ci, build, asset-pipeline)
 ├── prototypes/                  # One-shot games, throwaway prototypes (outside the code root)
-├── production/                  # Production management (sprints, milestones, releases)
+├── production/                  # Session state and logs
 │   ├── session-state/           # Ephemeral session state (active.md — gitignored)
 │   └── session-logs/            # Session audit trail (gitignored)
-└── studio-tests/                # QA for the skills/agents themselves — /skill-test, /skill-improve
 ```
 
 ## The code root is engine-specific

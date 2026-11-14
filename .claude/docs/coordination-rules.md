@@ -16,9 +16,13 @@
    tool (`^#`, content mode) and Read that range with offset and limit; read a doc
    whole only when the task needs all of it, and say why. `validate-read.sh`
    refuses a whole-file read of a doc over 40 KB.
-7. **Nothing Goes Upstream**: Never file, open or comment on an issue or pull
+7. **Trimmed roster**: this repo keeps only the agents in `.claude/agents/`.
+   An agent file that names another agent (`lead-programmer`, `producer`,
+   `technical-director`, ...) not in that folder names one that does not exist
+   here: the decision it would escalate goes to the user instead.
+8. **Nothing Goes Upstream**: Never file, open or comment on an issue or pull
    request in an engine, plugin or vendor repository, even when asked. Write a
-   draft (`/bug-report` drafts only) and the user submits it.
+   draft and the user submits it.
 
 ## Model Tier Assignment
 
@@ -36,16 +40,15 @@ costs more. The agent-side `model:` is a different mechanism, and is applied.
 This project uses two distinct multi-agent patterns:
 
 ### Subagents (current, always active)
-Spawned via the `Agent` tool within a single Claude Code session. Used by all
-`team-*` skills and orchestration skills. Subagents share the session's
+Spawned via the `Agent` tool within a single Claude Code session. Subagents share the session's
 permission context, run sequentially or in parallel within the session, and
 return results to the parent.
 
 **When to spawn in parallel**: If two subagents' inputs are independent (neither
 needs the other's output to begin), spawn both `Agent` calls simultaneously
-rather than waiting. Example: `/review-all-gdds` **Phase 2** (consistency) and
-**Phase 3** (design theory) are independent — spawn both at the same time.
-Phase 1 loads the GDDs and both depend on it, so it is the one phase here that
+rather than waiting. Example: asking `art-director` for a palette and
+`sound-designer` for a sound list for the same game are independent — spawn both
+at the same time. A review of what one of them produced depends on it, so it
 must NOT be parallelised.
 
 ### Agent Teams (experimental — opt-in)

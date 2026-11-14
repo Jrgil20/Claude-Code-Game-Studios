@@ -798,7 +798,7 @@ if [ -z "$CODE_ROOT" ]; then
         if [ "$CODE_ROOT_SRC" = invalid ]; then
             WARNINGS="$WARNINGS\nSKIPPED: source files are staged but the code root is invalid ($CODE_ROOT_WHY). The hardcoded-value and TODO-owner scans did NOT run. Fix engine.code_root in project.yaml, or remove it to use the engine's folder."
         else
-            WARNINGS="$WARNINGS\nSKIPPED: source files are staged but no code root could be resolved (engine.name unset, and the tree does not name one unambiguously). The hardcoded-value and TODO-owner scans did NOT run. Run /setup-engine, or set engine.name in project.yaml."
+            WARNINGS="$WARNINGS\nSKIPPED: source files are staged but no code root could be resolved (engine.name unset, and the tree does not name one unambiguously). The hardcoded-value and TODO-owner scans did NOT run. Set engine.name in project.yaml."
         fi
     fi
 fi

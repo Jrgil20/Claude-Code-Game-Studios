@@ -13,20 +13,12 @@ is One-shot 3's, section 3.
 
 **If PROCEED:**
 
-Your concept prototype validated the core idea. Now design it properly, informed by
-what you just learned.
+Your concept prototype validated the core idea. Build it for real, informed by what
+you just learned:
 
-At `workflow: minimal`: `/create-stories` (from the brief), then `/dev-story`
-on the first story — the rest of this list is the `standard`/`full` path.
-
-Recommended path (in order, `standard`/`full`):
-1. `/design-review design/gdd/game-concept.md` — validate the concept doc against what the prototype revealed
-2. `/gate-check` — confirm readiness to advance to Systems Design
-3. `/art-bible` — define visual identity (optional but worth doing before GDDs)
-4. `/map-systems` — decompose the concept into all game systems
-5. `/design-system [mechanic]` — GDD for each MVP system; use prototype learnings
-   in the Tuning Knobs and Formulas sections
-6. `/review-all-gdds` — cross-system consistency check
+- For the arcade challenge: `/arcade` with the idea, carrying the tuning values that
+  worked into its `TUNE` block.
+- Otherwise: keep changing it with `/prototype`, and `/cut` when it is time to finish.
 
 **If PIVOT:**
 

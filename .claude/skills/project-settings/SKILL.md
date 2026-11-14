@@ -110,7 +110,7 @@ legitimate; storing it *silently* is the defect.
 (when no arguments)
 
 1. Confirm `project.yaml` exists. If missing, report:
-   > "No `project.yaml` found — run `/start` to create one."
+   > "No `project.yaml` found — restore it from git (`git checkout -- project.yaml`)."
    And exit.
 
 2. Check if `project.local.yaml` exists.
@@ -344,7 +344,7 @@ When the effective value is empty (key not set anywhere), print just:
    (the value's first word, lowercased), inserting it right after the marker
    comment's closing `-->` when there is none yet, so no session loads another engine's
    reference: name `CLAUDE.md` in the prompt too. The rest of an engine (its
-   version, folders and Technology Stack) is `/setup-engine`'s: say so in one line.
+   version, folders and Technology Stack) is set by editing `project.yaml` and `CLAUDE.md` by hand: say so in one line.
 
 5. **Write**: edit `project.yaml` in place. The edit strategy depends on what
    already exists in `project.yaml`:
@@ -424,7 +424,7 @@ When the effective value is empty (key not set anywhere), print just:
    `--local` as the silent route.
 
 3. **Base check**: if `project.yaml` doesn't exist:
-   > "Cannot create `project.local.yaml` — `project.yaml` is missing. Run `/start` to create one first."
+   > "Cannot create `project.local.yaml` — `project.yaml` is missing. Restore it from git first."
    Exit. (Local overrides require a base, per spec.)
 
 4. **Approval gate**: ask with the question tool:

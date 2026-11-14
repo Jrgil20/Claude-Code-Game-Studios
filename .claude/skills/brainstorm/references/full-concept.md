@@ -119,33 +119,20 @@ it is not for, and games that serve the same player (their success is a market l
 ## Phase 6: Scope and feasibility
 
 - **Platform.** Ask: "What platforms are you targeting?" `PC (Steam / Epic)` / `Mobile (iOS /
-  Android)` / `Console` / `Web / Browser` / `Multiple platforms`. Record it for `/setup-engine`.
-  Note what the platform implies, without recommending an engine: `/setup-engine` makes that call
-  against the pinned engine reference.
+  Android)` / `Console` / `Web / Browser` / `Multiple platforms`. Record it.
+  For the arcade challenge it is fixed: web, Phaser 3, the cabinet.
 - **Engine.** Ask in every automation mode, `autonomous` included: "Do you already have an engine
   you work in?" `Godot` / `Unity` / `Unreal Engine 5` / `No preference — help me decide`. Never
   pick an engine for the user. A named engine is recorded as their preference without second
-  guessing. No preference: "Run `/setup-engine` after this session; it walks through the choice
-  with your concept and platform." Make no recommendation here.
+  guessing. No preference: record "undecided". Make no recommendation here.
 - Art pipeline and how labour-heavy it is; content scope (levels, items, hours); the MVP (the
   smallest build that tests whether the core loop is fun); the biggest technical, design and market
   risks (market risks follow Market lines above); scope tiers (full vision, and what ships if time
   runs out).
 
-**Review mode** before TD-FEASIBILITY: `solo` or `lean` prints `TD-FEASIBILITY skipped — Solo
-mode.` (or `Lean mode`) and goes on to the scope tiers. `full`: after the technical risks, hand the
-feasibility review to the `technical-director` agent (gate TD-FEASIBILITY; brief: the core loop,
-platform, engine or "undecided", the technical risks). Show its report. HIGH RISK: offer to revisit
-scope. CONCERNS: note and go on. NOT ASSESSED: name the missing input and record feasibility as not
-assessed in the concept's risks, never as VIABLE.
-
-**Review mode** before PR-SCOPE: `solo` or `lean` prints `PR-SCOPE skipped — Solo mode.` (or `Lean
-mode`) and goes on to Phase 7. `full`: hand the scope review to the `producer` agent (gate PR-SCOPE;
-brief: full vision, MVP, scope tiers, timeline, team size). It answers REALISTIC, OPTIMISTIC or
-UNREALISTIC. UNREALISTIC: ask whether to adjust the MVP or scope tiers or keep them; the user
-decides and the concept is never rejected for it. OPTIMISTIC: show the producer's adjustments and
-ask whether to apply them. NOT ASSESSED: ask for the missing input (timeline, team size) and run it
-again, or record scope as not assessed, never as REALISTIC.
+**Feasibility and scope reviews:** print `TD-FEASIBILITY skipped — no technical-director in this
+repo.` and `PR-SCOPE skipped — no producer in this repo.`, and record both as not assessed in the
+concept's risks, never as VIABLE or REALISTIC. Go on to Phase 7.
 
 ## Phase 7: Write the concept
 
@@ -170,39 +157,7 @@ Write the file, creating folders as needed. Never write `design/game-brief.md` a
 
 ## Phase 8: Next steps
 
-List every step, in order.
-
-**Design-first** (the concept is well defined):
-1. `/setup-engine`: configure the engine and its version-aware reference docs
-2. `/art-bible`: the visual identity, before any GDD. Required before the Technical Setup gate at
-   `full`; at `standard` only when the game has visual-asset stories
-3. `/design-review design/gdd/game-concept.md`: check the concept is complete
-4. The `creative-director` agent: refine the pillars
-5. `/map-systems`: the systems, their dependencies and priorities, in the systems index
-6. `/design-system`: one GDD per system from step 5
-7. `/create-architecture`: the architecture blueprint and its Required ADR list
-8. `/architecture-decision`: one ADR per decision on that list
-9. `/architecture-review`: the TR registry and traceability matrix (needed before the
-   Pre-Production gate)
-10. `/gate-check`: the stage gate before Production
-
-**Prototype-first** (the core mechanic is unproven):
-1. `/setup-engine`
-2. `/prototype [core mechanic]`: is it fun, in a day at most, throwaway code
-3. PROCEED: `/art-bible`, then design-first steps 5-10 with what the prototype taught
-4. PIVOT: `/brainstorm` again with the learnings
-5. After design and architecture, `/vertical-slice` before committing to sprints
-
-With no engine named in Phase 6, prototype-first is the recommended path, and its first step is
-`/prototype` instead: a playable browser game from the concept, before any engine.
-Say "Type `/prototype` to build it." and do not start it yourself: a typed `/brainstorm` runs its
-turn on this skill's model, and the build must run on the session's. With an engine named, add
-one line: "`/prototype --path html` makes a browser sketch first; not recommended, since the game
-is rebuilt in [engine]."
-
-Then a summary: the pitch, pillars, primary player type, engine preference, biggest risk and the
-file path. End with the line `Verdict: COMPLETE — game concept written.`
-
-If the conversation is getting long before Phase 7, say that anything not yet written to
-`design/gdd/game-concept.md` lives only in this conversation, and write the concept before a fresh
-session.
+One step. For the arcade challenge: "Type `/arcade` to build it." Otherwise: "Type `/prototype`
+to build it": a playable browser game from the concept. Do not start either yourself: a typed
+`/brainstorm` runs its turn on this skill's model, and the build must run on the session's. PIVOT
+after play: `/brainstorm` again with the learnings.

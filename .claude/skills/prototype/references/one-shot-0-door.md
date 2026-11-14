@@ -14,7 +14,7 @@ a one-shot. The original is only ever read: nothing in it is edited, moved or de
 ## 1. When it runs
 
 `/prototype --from <path>`, or a message that brings a game without it (a path to a game,
-"bring in my game"). `/start` sends people here when it finds a game in the project.
+"bring in my game"). It runs when the person asks to bring a game in.
 
 ## 2. Look first
 
@@ -29,7 +29,7 @@ It writes nothing. Its rows say what it found:
   MB.
 - **`kind export <what>`:** made by an engine or tool (Godot, Unity, Construct, Twine...): section 8.
 - **`kind web_project`:** it has a `package.json`, so it has its own build. Say: "This is a web
-  project with its own build. `/setup-engine web` sets Claude Code Game Studios up around it as it is." Stop.
+  project with its own build. Set `engine.name: Web` in `project.yaml` to work on it as it is." Stop.
 - **`kind not_a_game`:** say what is missing in plain words ("I can't find a game in it: the page
   has no script") and ask for the right file. Stop. When the `refused` row names the folder's page
   (a game saved as one page with its own name), ask whether to bring that page in; on a yes, this
@@ -93,7 +93,7 @@ any copy of the project. None of them changes a file the game brought.
 
 ## 6. The brief
 
-Read `.claude/skills/reverse-document/references/from-a-game.md` and follow its sections 1 to 6
+Read `.claude/skills/prototype/references/from-a-game.md` and follow its sections 1 to 6
 for `prototypes/<name>/`: it reads the game into the brief and its Features, built ones marked
 `[x]` with evidence in `evidence/door.md`, and names what it could not read. Without that file,
 the step is switched off: say so in one line, write `brief.md` with the title, the person's words
@@ -144,7 +144,7 @@ remake instead:
 - A brief from what can be seen and read (Twine passages and Bitsy text are readable), then the
   offer: **Remake it here**, which builds a new one-shot from that brief (One-shot 1).
 - For Godot or Unity also say: "To keep working on this game itself, bring its project, not the
-  export, and run `/setup-engine`."
+  export, and set `engine.name` in `project.yaml`."
 
 ## 9. After the door
 
