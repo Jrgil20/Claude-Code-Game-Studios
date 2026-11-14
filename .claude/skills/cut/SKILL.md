@@ -19,7 +19,7 @@ reason taken from it, and keeps a polish list; the person picks every cut. For `
 brief, the polish list and any cut story's Status line, and makes one commit.
 
 It runs only when asked: `/cut`, or "what should I cut?", "how do I finish this?". It works on
-the game `design/game-brief.md` describes. A project with GDDs and no brief is `/scope-check`'s.
+the game `design/game-brief.md` describes. A project with GDDs and no brief is out of scope here.
 
 Ask with the question tool. Without one, list the options numbered and end your turn to wait. The
 question is the last thing in the reply. A skipped or dismissed question is not an answer: ask
@@ -34,8 +34,8 @@ Run `bash .claude/scripts/cut-read.sh` and keep its rows:
 
 | Rows | Use |
 |---|---|
-| `brief`, `title` | The briefs written, both copies while they are the same text. `brief none`: say "/cut works from the brief's Features list, and there is no `design/game-brief.md`", name `/scope-check` when `design/gdd/` has files, and stop. `brief_differs`: the game's folder copy differs; only `design/game-brief.md` is written, said in one line |
-| `goal`, `dates` | `dates asked` or `not_asked` follows the goal. `goal - unset` (or `unknown`): guess it with `/start`'s goal table (`.claude/skills/start/SKILL.md`, Phase 4) from the brief's In your words, `hobby` when nothing fits, and show it *guessed* |
+| `brief`, `title` | The briefs written, both copies while they are the same text. `brief none`: say "/cut works from the brief's Features list, and there is no `design/game-brief.md`", and stop. `brief_differs`: the game's folder copy differs; only `design/game-brief.md` is written, said in one line |
+| `goal`, `dates` | `dates asked` or `not_asked` follows the goal. `goal - unset` (or `unknown`): guess it with the goal table (`references/goal-table.md`) from the brief's In your words, `hobby` when nothing fits, and show it *guessed* |
 | `feature`, `keep`, `avoid`, `out`, `cut` | The Features list by number, with its marks; the lists the proposals check |
 | `recorded`, `passed` | Dates already on the brief's Dates line, and any date already past |
 | `game`, `record`, `open` | A one-shot's last check record and its fails not marked deliberate |
@@ -129,7 +129,7 @@ Run `bash .claude/scripts/cut-apply.sh` with `--brief <path>` for each `brief` r
 
 - `--cut <n> "<reason>"` for each picked item: it leaves Features for the end of Out of scope as
   `- [-] <item> · cut: <reason> (<date>)`, plus ` · was built` when it was `[x]`; its story's
-  Status becomes `Blocked — BLOCKED: cut by /cut <date>: <reason>`, a status `/dev-story` stops on
+  Status becomes `Blocked — BLOCKED: cut by /cut <date>: <reason>`, a status the build skips
   (a Complete story keeps its status: `story moved`).
 - `--mark <n>` for each mark brought up to date.
 - `--dates <target> <freeze> "<what>"` when dates were given.
@@ -146,8 +146,8 @@ polish list (<n> rows)" -m "Brief: design/game-brief.md" -- <the same paths>`. L
 `cut <items> · ` when nothing was cut, and `dates · ` when the Dates line did not change. No git:
 "Not committed: this project has no git." Say in one line what was written.
 
-Next step: build what is left before the freeze (`/create-stories` writes a story for each
-not-yet item in a project), and work down the polish list.
+Next step: build what is left before the freeze (`/arcade` or `/prototype`, one item at a
+time), and work down the polish list.
 
 ## Afterwards
 

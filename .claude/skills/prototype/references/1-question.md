@@ -24,7 +24,7 @@ intent before proceeding — with or without a carry-forward note:
 **If "Skip — concept already proven":**
 Ask (plain text, not a widget): "What evidence do you have that the concept works?"
 Record the one-line answer, then stop. Note: "Concept prototype skipped — evidence:
-[answer]." Suggest next step: `/map-systems` or `/design-system [mechanic]`.
+[answer]." Suggest next step: `/arcade` for the challenge game, or `/prototype` again.
 
 **If "Mid-production spike"**: skip to the **Spike Mode** section below.
 

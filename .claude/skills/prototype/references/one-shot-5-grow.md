@@ -179,7 +179,7 @@ It writes `engine.name: Web` and `engine.version` into `project.yaml` only when 
 unset (`engine written`); a set `Web` stays (`engine kept`). Nothing else in `project.yaml`
 changes. `claude_md written` points CLAUDE.md's engine reference import at
 `docs/engine-reference/web/VERSION.md` and fills its Technology Stack lines that were still
-placeholders, as `/setup-engine` does, so no session loads another engine's reference. Then:
+placeholders, so no session loads another engine's reference. Then:
 
 - **The brief:** `design/game-brief.md` stays the design record. Mark each Features line from
   what the grown game does: built `[x]`, not yet `[ ]`. Keep, Avoid and Out of scope stay word
@@ -205,7 +205,7 @@ In plain lines:
   Playwright), `npm run smoke` (the boot test), `npm run dev`.
 - **What was proven:** the same-seed run matched before and after, or NOT ASSESSED with why.
 - **Next:** say the next feature in your own words: it is built in one sitting (section 9),
-  checked and committed. Stories (`/create-stories`) only when you ask for them, or in studio mode.
+  checked and committed. No stories: this trimmed repo has no story pipeline.
   When the game is close to finished, `/cut` proposes what to cut and a polish list.
 
 ## 9. One feature a sitting

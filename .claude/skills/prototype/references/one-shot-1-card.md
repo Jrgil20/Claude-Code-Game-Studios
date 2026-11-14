@@ -25,7 +25,7 @@ the brief · 6 On Build it
   alone and `design/game-brief.md` stays as it is.
 - **No brief:** the person's words are what they typed, word for word: the text after the skill
   name when they started the skill themselves; with nothing after it, what they wrote about the
-  game earlier in this conversation (an answer to `/start`, say); otherwise their whole message
+  game earlier in this conversation (an earlier answer, say); otherwise their whole message
   that asked for the game. The skill's arguments, when it was started for them, are a summary,
   never their words.
 - **A pivot note:** a `PIVOT-NOTE.md` in the folder of the game they just changed direction
@@ -223,7 +223,7 @@ Writes: design/game-brief.md, prototypes/<name>/
   before Build it)`.
 - **Engine** is web: *you said* when `engine.name: Web` is set or they asked for the browser,
   otherwise *guessed*. An engine asked for with none set: `Engine: web now; <engine> after
-  you've played it`, and `/setup-engine` is the handover's Next line.
+  you've played it`, and setting `engine.name` is the handover's Next line.
 - **Your goal** is one of jam, learn, hobby, portfolio, sell, early_access, publisher, mobile or
   other: `project.goal` when it is set, otherwise from their words, otherwise hobby (*guessed*).
 - **Model** shows only off Opus (Sonnet, Haiku or another vendor's).

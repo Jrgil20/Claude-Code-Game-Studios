@@ -46,8 +46,8 @@ no `project.yaml` engine, read the engine line in `CLAUDE.md` the same way.
 
 **No engine set when the skill starts: the browser game comes first,** built and handed over
 whatever is asked at the card. A wish for an engine (one installed, netcode to prove, the engine
-to ship on) is one card line, as the card file says, and `/setup-engine` is the handover's next
-step. Never run `/setup-engine` inside a one-shot; only `--path engine` skips the browser game.
+to ship on) is one card line, as the card file says; setting `engine.name` in `project.yaml` is the handover's next
+step. Never change the engine inside a one-shot; only `--path engine` skips the browser game.
 
 Ask no question to choose the route.
 
@@ -87,7 +87,7 @@ A request to share or export the game follows the same file's Share it section.
 **On Keep going after play (One-shot 3, section 3), read `references/one-shot-5-grow.md` and
 follow it:** one question, keep iterating or grow it into a web project at the project root.
 With that file not there, growing is switched off: say they can ask for a change any time.
-"Grow it" at any point after play (the change loop's line, or `/next-step`) asks the verdict
+"Grow it" at any point after play (the change loop's line) asks the verdict
 first when it has not been given; on Keep going, One-shot 5 asks its one question. After the grow, each feature or change the person asks for follows that file's section 9: one feature a sitting.
 
 ---

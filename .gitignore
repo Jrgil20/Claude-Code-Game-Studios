@@ -32,7 +32,7 @@ sandboxes/
 tests/sandboxes/
 
 # === Runtime Artifacts (auto-generated, start empty on fresh clone) ===
-# Created on first use by /consistency-check and /architecture-review
+# Created on first use by registry tools
 docs/consistency-failures.md
 
 # === Build Output ===
@@ -40,7 +40,7 @@ build/
 builds/
 bin/
 # ...but not an addon's own scripts: gdUnit4's test runner lives in
-# addons/gdUnit4/bin/, and without it neither /smoke-check nor CI can run tests.
+# addons/gdUnit4/bin/, and without it CI cannot run tests.
 !addons/gdUnit4/bin/
 obj/
 out/
@@ -173,3 +173,5 @@ $RECYCLE.BIN/
 # the project root. Anchored so a reports/ folder elsewhere stays tracked.
 /reports/
 /test-results/
+# Local AI runtime state
+.atl/

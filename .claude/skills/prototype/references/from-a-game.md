@@ -1,13 +1,13 @@
-# /reverse-document — brief: from a game
+# Brief from a game
 
-> Part of `/reverse-document`. `SKILL.md` names when to read this file; the settings it
-> resolved and the rules under its later headings still apply here.
+> Read by `/prototype`'s door (One-shot 0). The settings it resolved and the rules under
+> its later headings still apply here.
 
 Reads a browser game someone already made (one `.html` file, or a folder with `index.html`) and
 writes its brief, the 1.3.0 one-page shape (`.claude/docs/templates/game-brief.md`), with the
 Features it has marked built, so the next story is new work and never a rebuild. It says what it
-could not read, by name, instead of guessing. Run as `/reverse-document brief <file or folder>`,
-or read by `/prototype`'s door (One-shot 0) for a game it just brought in.
+could not read, by name, instead of guessing. It is
+read by `/prototype`'s door (One-shot 0) for a game it just brought in.
 
 **In this file:** 1 Read what is there · 2 Enough to go on? · 3 Read the code · 4 Look at it ·
 5 The brief · 6 The record · 7 Show it and write
@@ -104,5 +104,5 @@ at a time. Writes: `prototypes/<name>/brief.md`, and `design/game-brief.md` when
 or this becomes the game being worked on; the record. Only after the yes.
 
 Then name the next step in plain words: every `[ ]` item is new work. A change to the game itself
-is asked for as any change is (`/prototype`, for a game in `prototypes/`); `/create-stories`
-writes one story for each `[ ]` item, and none for an `[x]` one.
+is asked for as any change is (`/prototype`, or `/arcade` for a challenge game);
+the `[ ]` items are the list to work through.
